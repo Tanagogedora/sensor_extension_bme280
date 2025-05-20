@@ -1,0 +1,4 @@
+title: "My Math Page"
+markdown: kramdown
+kramdown:
+  math_engine: mathjax
