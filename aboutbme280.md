@@ -86,3 +86,4 @@ micro:bit &trade; は気圧・湿度センサーを持っていません。BME28
 ### ○ 通信方法はI2C  
 BME280センサーモジュールの通信方法はI2CとSPIですが、難易度が低いのはI2Cです。実際MakeCode &trade; の拡張機能にBME280の拡張機能が既にいくつか登録されていますが、通信はI2Cになっています。 
 
+<a href="https://github.com/Tanagogedora/sensor_extension_bme280/blob/main/index.md">Indexへ戻る</a>
