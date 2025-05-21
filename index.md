@@ -6,7 +6,7 @@
 このサイトは環境センサーBME280搭載センサーモジュールとBME280センサーモジュールをmicro:bit &trade; と接続する際に利用する MakeCode  &trade; 拡張機能および拡張機能のブロックの解説と拡張機能の利用例（サンプルブロック・サンプルコード）に関するサイトです。
 
 ### 目次　
-1.BME280センサーモジュールについて  
+1. <a href="https://github.com/Tanagogedora/sensor_extension_bme280/blob/main/aboutbme280.md"> BME280センサーモジュールについて</a>  
  - BME280センサーモジュールの紹介  
    
 2.ブロックの紹介
