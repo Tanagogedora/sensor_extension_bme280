@@ -89,7 +89,7 @@ micro:bit &trade; は気圧・湿度センサーを持っていません。BME28
 計算式はやや難解ですが、MakeCode &trade; のブロックを丁寧に組み上げていけば、基本ブロックだけでも計算できます。  
 気圧や湿度はmicro:bit  &trade; では得られません。BME280センサーモジュールを利用すれば比較的簡単に、正確な気温・気圧・湿度を得ることができます。   
 
-### ○ 通信方法はI2C  
+#### ○ 通信方法はI2C  
 BME280センサーモジュールの通信方法はI2CとSPIですが、難易度が低いのはI2Cです。実際MakeCode &trade; の拡張機能にBME280の拡張機能が既にいくつか登録されていますが、通信はI2Cになっています。 
 
 <a href="https://tanagogedora.github.io/sensor_extension_bme280/">Indexへ戻る</a>
