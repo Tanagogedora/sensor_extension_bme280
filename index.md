@@ -1,3 +1,8 @@
+---
+layout: default
+title: micor:bit &trade;　MakeCode &trade; BME280用拡張機能　日本語仕様
+---
+
 # micor:bit &trade;　MakeCode &trade; BME280用拡張機能　日本語仕様 
 ## BOSCH社製環境センサーBME280搭載センサーモジュールをmicro:bit  &trade;で利用するための拡張機能（日本語仕様）の解説 
 
