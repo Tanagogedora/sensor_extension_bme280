@@ -27,7 +27,7 @@ BME280　日本語仕様拡張機能はmicroPhython Chineseコミュニティの
 - 露点計算の方法を改良マグヌス式に変更した。（数値　整数/小数第１位の選択）
 
 ### 利用方法
-micro:bitのMakeCode %trade; （以下MakeCodeと表記）のエディター画面から拡張機能をクリックし、次のURLを拡張機能の検索に張り付けてください。
+micro:bitのMakeCodeのエディター画面から拡張機能をクリックし、次のURLを拡張機能の検索に張り付けてください。
 
 ``` https://github.com/tanagogedora/bme280-jp ```
 
