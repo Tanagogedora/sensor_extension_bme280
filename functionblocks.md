@@ -36,7 +36,7 @@ micro:bitのMakeCodeのエディター画面から拡張機能をクリックし
 ## 3. 拡張機能のブロック紹介
 ### (1) センサー制御ブロック BME280のセンサー機能を制御するための基本ブロック
 <img src="/image/sensorcontrol.jpeg"  style="float: right; margin: 10px; width: 200px;" alt="センサー制御ブロック" >
-センサーの電源管理やI2Cアドレスを設定するブロック。<br>
+センサーの電源管理やI2Cアドレスを設定するブロック。
 <p><B>I2Cアドレスブロック</B></p> 
 
    
