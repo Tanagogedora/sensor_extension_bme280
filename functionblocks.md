@@ -35,8 +35,8 @@ micro:bitのMakeCodeのエディター画面から拡張機能をクリックし
 
 ## 3. 拡張機能のブロック紹介
 ### (1) センサー制御ブロック BME280のセンサー機能を制御するための基本ブロック
-<img src="/image/sensorcontrol.jpeg" alt="センサー制御ブロック" aline="right">
--
+<img src="/image/sensorcontrol.jpeg" alt="センサー制御ブロック" aline="left">
+-   
 ### (2) 環境データの基本ブロック センサーとしてのBME280が取得した数値を取り出すブロック
 ### (3) 応用ブロック BME280から得られたデータをもとに数値を計算・導くブロック
 ### (4) 条件ブロック
