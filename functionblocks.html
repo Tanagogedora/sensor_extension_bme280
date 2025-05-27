@@ -60,8 +60,8 @@ BME280拡張機能（日本語仕様）はmicroPhython Chineseコミュニティ
 <li>露点計算の方法を改良マグヌス式に変更した。（数値　整数/小数第１位の選択）</li>
 </ul>
 <h3>＜利用方法＞</h3>
-micro:bitのMakeCodeのエディター画面から拡張機能をクリックし、次のURLを拡張機能の検索に張り付けて検索</B>してください。BME280の拡張機能（日本語仕様）が読み込まれ利用することができいます。<br>
-URL https://github.com/tanagogedora/bme280-jp</B> <BR>
+micro:bitのMakeCodeのエディター画面から拡張機能をクリックし、次のURLを拡張機能の検索に張り付けて検索してください。BME280の拡張機能（日本語仕様）が読み込まれ利用することができいます。<br>
+URL https://github.com/tanagogedora/bme280-jp <BR>
 <a href="#top">ページ先頭へ</a><br>
 </p>
 </section>
@@ -75,11 +75,11 @@ URL https://github.com/tanagogedora/bme280-jp</B> <BR>
 <img src="image/sensorcontrol.jpeg" style="float: right; margin: 10px; width: 200px;" alt="センサー制御ブロック" >
 <h4>【センサーの電源管理やI2Cアドレスを設定するブロック】</h4> 
 <ul>
-<li>I2Cアドレス　ブロック</B></li>  
+<li>I2Cアドレス　ブロック</li>  
 I2C通信方式でBME280とmicro:bit間の通信（データ授受）を行う際に利用するBME280のアドレスを選択。0x76か0x77。アドレスはモジュールによって異なる。<br>
-<li>センサー起動　ブロック</B></li>  
+<li>センサー起動　ブロック</li>  
 BME280の機能を利用開始するための命令を出すブロック。I2Cアドレスブロックとペアで使用。I2Cアドレスを設定し、センサー利用開始の流れになる。<br>  
-<li>センサー停止　ブロック</B></li>  
+<li>センサー停止　ブロック</li>  
 BME280の機能を停止するための命令を出すブロック。<br> 
 </ul>
 <a href="#top">ページ先頭へ</a><br> 
@@ -90,21 +90,21 @@ BME280の機能を停止するための命令を出すブロック。<br>
 <h4>【センサーとしてのBME280が取得した数値を取り出すブロック】</h4>
  <img src="image/basicfunction.jpeg" style="float: right; margin: 10px; width: 286px;" alt="BME280基本機能ブロック" > 
 <ul style="list-style-type: none; padding-left: 0;">
-<li>BME280が取得した数値を取り出す</B>ブロック。</li>
-<li>数値は整数.小数第1位・小数第２位</B></li>
+<li>BME280が取得した数値を取り出すブロック。</li>
+<li>数値は整数.小数第1位・小数第２位</li>
 </ul>
 <ul>
-<li>気温　ブロック</B></li>
+<li>気温　ブロック</li>
 <ul>
 <li>気温データを出力</li>
 <li>摂氏（セルシウス度　℃）と華氏（ファーレンハイト度　°F）に対応</li>
 </ul>
-<li>気圧　ブロック</B></li>
+<li>気圧　ブロック</li>
 <ul>  
 <li>気圧データを出力</li>
 <li>パスカル（Pa）またはヘクトパスカル（ｈPa）に対応</li> 
 </ul>
-<li>湿度　ブロック</B></li>  
+<li>湿度　ブロック</li>  
 <ul> 
 <li>湿度（相対湿度）を出力</li>  
 <li>パーセント表示</li>  
@@ -117,23 +117,23 @@ BME280の機能を停止するための命令を出すブロック。<br>
 <h3 id="appblocks">(3) 応用ブロック</h3>
 <h4>【BME280から得られたデータをもとに数値を計算・導くブロック】</h4>
 <ul style="list-style-type: none; padding-left: 0;">
-<li>BME280から得られたデータを基に各種数値を計算</B>するブロック</li>
+<li>BME280から得られたデータを基に各種数値を計算するブロック</li>
 <ul style="list-style-type: none; padding-left: 0;">
-<li>標高差は基準点の気圧（初期気圧）以外、BME280から得たリアルタイムのデータ（現地の気圧・気温）を使用する</B></li>
+<li>標高差は基準点の気圧（初期気圧）以外、BME280から得たリアルタイムのデータ（現地の気圧・気温）を使用する</li>
 </ul>
 <il>  
-<li>飽和水蒸気圧・飽和水蒸気量はBME280から得たリアルタイムのデータを利用するブロックと、ユーザーが気温を指定するブロックを用意</b></li>
-<li>露点はBME280から得たリアルタイムのデータを利用するブロックと、ユーザーが気温・湿度を指定するブロックを用意</b></li>
+<li>飽和水蒸気圧・飽和水蒸気量はBME280から得たリアルタイムのデータを利用するブロックと、ユーザーが気温を指定するブロックを用意</li>
+<li>露点はBME280から得たリアルタイムのデータを利用するブロックと、ユーザーが気温・湿度を指定するブロックを用意</li>
 </ul>
-<li>数値は整数.小数第1位</B><BR></li>
+<li>数値は整数.小数第1位<BR></li>
 </ul>
 <ul>
-<li>標高差　ブロック</B></li> 
+<li>標高差　ブロック</li> 
 <img src="image/elevationdelta.jpeg" style="float: right; margin: 10px; width: 267px;" alt="標高差ブロック" > 
 <ul style="list-style-type: none; padding-left: 0;">
 <li>気圧と気温を用いて基準点からの標高差を計算</li>
 <li>単位はメートル（ｍ）またはフィート（ft）</li>
-<li>標高差の求め方</B></li>
+<li>標高差の求め方</li>
 <ul>
 <li>基準点の気圧をP<sub>0</sub>（PaまたはhPa）、現場の気圧をP（PaまたはhPa）、気温をt（℃）とする</li>
 <li>標高差Δh（ｍ）は次式で計算できる</li>
@@ -147,7 +147,7 @@ BME280の機能を停止するための命令を出すブロック。<br>
 </ul>
 </ul>
 </ul>
-<li>飽和水蒸気圧　ブロック</B></li> 
+<li>飽和水蒸気圧　ブロック</li> 
 <img src="image/Saturatedvapor.jpeg" style="float: right; margin: 10px; width: 434px;" alt="飽和水蒸気圧/量ブロック">
 <li>単位はヘクトパスカル（hPa）</li> 
 <ul>
@@ -156,7 +156,7 @@ BME280の機能を停止するための命令を出すブロック。<br>
 <ul style="list-style-type: none; padding-left: 0;">
 <span style="font-size: 150%;">
 <li>
-\( e(t)=6.1078\times 10 ^ \left( \frac{7.5t}{t+237.3} \right ) \)</B>
+\( e(t)=6.1078\times 10 ^ \left( \frac{7.5t}{t+237.3} \right ) \)
 </li>
 </span>
 <span style="font-size: 120%;">Tetens(テテンス)の式は\( e(t)=6.1078\times 10 ^ \left( \frac{at}{t+b} \right ) \)で表される。<br>
@@ -164,7 +164,7 @@ BME280の機能を停止するための命令を出すブロック。<br>
 </ul>
 </ul>
 </ul>
-<li>飽和水蒸気量　ブロック</B></li> 
+<li>飽和水蒸気量　ブロック</li> 
 <ul style="list-style-type: none; padding-left: 0;">
 <li>気温から飽和水蒸気量を計算</li>
 <li>単位はg/m<sup>3</sup>（hPa）</li>
@@ -175,14 +175,14 @@ BME280の機能を停止するための命令を出すブロック。<br>
 <ul style="list-style-type: none; padding-left: 0;">
 <span style="font-size: 150%;">
 <li>
-\( a(t)=217 \times \frac{P}{t+237.15} = 217 \times \frac{6.1078\times 10 ^ \left( \frac{7.5t}{t+237.3} \right )}{t+237.15} \) </B>
+\( a(t)=217 \times \frac{P}{t+237.15} = 217 \times \frac{6.1078\times 10 ^ \left( \frac{7.5t}{t+237.3} \right )}{t+237.15} \) 
 </li>
 </span>
 <span style="font-size: 120%;">上式は理想気体の状態方程式\( pV=nRT \)から求めた</span>式<br>
 </ul>
 </ul>
 </ul>
-<li>露点　ブロック</B></li>
+<li>露点　ブロック</li>
 <img src="image/dewpoint.jpeg" style="float: right; margin: 10px; width:428px;" alt="露点ブロック">
 <ul style="list-style-type: none; padding-left: 0;">
 <li>気温（℃）と湿度から露点を計算</li>
@@ -194,7 +194,7 @@ BME280の機能を停止するための命令を出すブロック。<br>
 <ul style="list-style-type: none; padding-left: 0;">
 <span style="font-size: 150%;">
 <li>
-\( Td= \frac{b \times \alpha}{a-\alpha} \) </B>
+\( Td= \frac{b \times \alpha}{a-\alpha} \) 
 </li>
 </span>
 <span style="font-size: 120%;">ただし \( aとbは定数 \)で、  \( a=16.72 \)、\( b=243.12 \)。<br>
@@ -210,8 +210,8 @@ BME280の機能を停止するための命令を出すブロック。<br>
 <h3 id="condblocks">(4) 条件ブロック</h3>
 <h4>【ブロックの条件に合わせた処理を行うブロック】</h4>
 <ul style="list-style-type: none; padding-left: 0;">
-<li>気温・気圧・湿度について用意</B></li>
-<li>値が「しきい値より大」または「しきい値より小」の時のイベントを指定</B></li>
+<li>気温・気圧・湿度について用意</li>
+<li>値が「しきい値より大」または「しきい値より小」の時のイベントを指定</li>
 </ul>
 <a href="#top">ページ先頭へ</a><br>
 </p>
