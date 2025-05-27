@@ -1,0 +1,64 @@
+  <style>
+/* 基本フォントサイズの統一 */
+    body {
+      font-size: 20px;
+      font-family: "Yu Gothic", "游ゴシック", sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+    }
+/* 見出しの調整 */
+h1 {
+  font-size: 1.8em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #333;
+  padding-bottom: 5px;
+}
+h2 {
+  font-size: 1.4em;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  border-left: 4px solid #666;
+  padding-left: 0.5em;
+}
+h3, h4 {
+  font-size: 1.2em;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+/* 段落 */
+p {
+  text-indent: 1em;
+  margin-bottom: 1em;
+}
+
+/* リスト */
+ol, ul {
+  margin-left: 2em;
+  margin-bottom: 1em;
+}
+li {
+  margin-bottom: 0.5em;
+}
+
+/* リンク */
+a {
+  color: #0645AD;
+  text-decoration: underline;
+}
+a:hover {
+  text-decoration: none;
+}
+
+/* 免責事項など小さめ表示 */
+footer, .copyright, small {
+  font-size: 0.9em;
+  color: #555;
+}
+
+/* アイコン画像（CCマークなど）を整列 */
+.cc-icons img {
+  vertical-align: middle;
+}
+</style>
