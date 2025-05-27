@@ -12,3 +12,4 @@ BOSCH社製環境センサーBME280搭載モジュールをmicro:bit &trade;で�
 ### 文章・画像・プログラムソース
 #### - 文章と画像 <a href="https://creativecommons.org" _msttexthash="32740890" _msthash="521">BME280拡張機能紹介</a><font _mstmutation="1" _msttexthash="13416832" _msthash="522">© 2025 作成者</font><a href="https://creativecommons.org" _msttexthash="9243949" _msthash="523">Tanagotti</a><font _mstmutation="1" _msttexthash="31309603" _msthash="524">の下でライセンスされています。</font><a href="https://creativecommons.org/licenses/by-sa/4.0/" _msttexthash="1548131" _msthash="525">CC BY-SA 4.0</a> <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" style="width: 16px;height:16px;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" style="width: 16px;height:16px;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" style="width: 16px;height:16px;margin-left: .2em;">
 #### - プログラムソース(javascript MakeCode Block)2025 &copy;Tanagotti MIT LICENSE
+ 
