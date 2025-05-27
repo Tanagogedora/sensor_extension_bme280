@@ -39,7 +39,6 @@
 <h4>【拡張機能とは】</h4>
 micro:bit &trade; （以下micro:bitと表記）で環境センサーBME280を利用するためには、MakeCode &trade; （以下MakeCodeと表記）のBME280用拡張機能が必要です。<br>  
 拡張機能はMakeCodeを利用してmicro:bitができることの幅を広げるための機能です。たとえばmicro:bitには無線通信機能があります。Bluetooth通信の利用も可能ですが、MakeCodeの基本ブロックではサポートされていません。MakeCodeの拡張機能からBluetooth通信の拡張機能を追加することでBluetooth通信が可能になります。拡張機能は、パソコンにプリンターを接続して印刷するためにインストールするドライバみたいなものだと思ってもかまいません。<br> 
-
 <h4>【BME280用拡張機能】</h4> 
 MakeCodeの拡張機能でBME280と検索すると拡張機能が数種類出てきます。シンプルにBME280と表記されたものはmicroPhythonのChineseコミュニティが制作したものです。基本的な機能はそろっているのでこれを利用するのが分かりやすいと思います。<br>
 ただ、microPhython Chineseコミュニティの拡張機能はブロック表記が英語であること、取得される数値が整数値であることが弱点といえば弱点です。BME280は環境センサーとはいえ、気象データに特化したセンサーのため、ブロックには一般的に馴染みのない英語（Dew Point＝露点）もあります。<br>
@@ -48,7 +47,6 @@ MakeCodeの拡張機能でBME280と検索すると拡張機能が数種類出て
 </section>
 </dov>
 <hr>
-
 <section id="functionforjapanese">
 <p>
 <h2>2. 日本語仕様の拡張機能と利用方法</h2>
@@ -61,7 +59,6 @@ BME280拡張機能（日本語仕様）はmicroPhython Chineseコミュニティ
 <li>BME280が出す気温の値から飽和水蒸気圧と飽和水蒸気量を計算するブロックを加えた。（数値　整数/小数第１位の選択）　</li>
 <li>露点計算の方法を改良マグヌス式に変更した。（数値　整数/小数第１位の選択）</li>
 </ul>
-
 <h3>＜利用方法＞</h3>
 <B>micro:bitのMakeCodeのエディター画面から拡張機能をクリックし、次のURLを拡張機能の検索に張り付けて検索</B>してください。BME280の拡張機能（日本語仕様）が読み込まれ利用することができいます。<br>
 <B>URL https://github.com/tanagogedora/bme280-jp</B> <BR>
@@ -69,10 +66,8 @@ BME280拡張機能（日本語仕様）はmicroPhython Chineseコミュニティ
 </p>
 </section>
 <hr>
-
 <section>
 <p>
-
 <h2 id="functionblocks">3. 拡張機能のブロック紹介</h2>
 <p>
 <h3 id="contblocks">(1) センサー制御ブロック</h3>
@@ -93,6 +88,7 @@ BME280の機能を停止するための命令を出すブロック。<br>
 <p> 
 <h3 id="basicblocks">(2) 環境データの基本ブロック</h3>
 <h4>【センサーとしてのBME280が取得した数値を取り出すブロック】</h4>
+ <img src="image/basicfunction.jpeg" style="float: right; margin: 10px; width: 300px;" alt="BME280基本機能ブロック" > 
 <ul style="list-style-type: none; padding-left: 0;">
 <li><B>BME280が取得した数値を取り出す</B>ブロック。</li>
 <li><B>数値は整数.小数第1位・小数第２位</B></li>
@@ -116,9 +112,7 @@ BME280の機能を停止するための命令を出すブロック。<br>
 </ul>
 <a href="#top">ページ先頭へ</a><br>
 </p>
-
 <hr>
-
 <p>
 <h3 id="appblocks">(3) 応用ブロック</h3>
 <h4>【BME280から得られたデータをもとに数値を計算・導くブロック】</h4>
@@ -206,9 +200,7 @@ BME280の機能を停止するための命令を出すブロック。<br>
 </ul>
 <a href="#top">ページ先頭へ</a><br> 
 </p>
-
 <hr>
-
 <p> 
 <h3 id="condblocks">(4) 条件ブロック</h3>
 <h4>【ブロックの条件に合わせた処理を行うブロック】</h4>
@@ -219,9 +211,7 @@ BME280の機能を停止するための命令を出すブロック。<br>
 <a href="#top">ページ先頭へ</a><br>
 </p>
 </section>
-
 <hr>
-
 <a href="index.html">Indexに戻る</a>
 </body>
 </html>
