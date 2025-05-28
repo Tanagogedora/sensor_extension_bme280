@@ -137,11 +137,11 @@ BME280の機能を停止するための命令を出すブロック。<br>
 <li>標高差Δh（ｍ）は次式で計算できる</li>
 <ul style="list-style-type: none; padding-left: 0;">
 <li><span style="font-size: 150%;">
-\( Δh =\frac{\left( \left( \frac{P_0}{P} \right )^\frac{1}{5.257} -1 \right )\times \left(t+273.25  \right )}{0.0065} \)
+\( Δh =\frac{\left( \left( \frac{P_0}{P} \right )^\frac{1}{5.257} -1 \right )\times \left(t+273.15  \right )}{0.0065} \)
 </span></li>
 <br>
 【式中の数値について】
-<li> t+273.25　気温t℃を絶対温度に変換（単位：K ケルビン）</li>
+<li> t+273.15　気温t℃を絶対温度に変換（単位：K ケルビン）</li>
 <li> 0.0065（℃／m）　対流圏における気温減率（教科書等では0.65℃/100ｍと表記）</li>
 </ul>
 </ul>
