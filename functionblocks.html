@@ -90,7 +90,7 @@ URL https://github.com/tanagogedora/bme280-jp<br>
 <li><B>I<sup>2</sup>Cアドレスブロック</B></li>  
 I<sup>2</sup>C通信方式でBME280とmicro:bit間の通信（データ授受）を行う際に利用するBME280のアドレスを選択。0x76か0x77。アドレスはモジュールによって異なる。<br>
 <li><B>センサー起動ブロック</B></li>  
-BME280の機能を利用開始するための命令を出すブロック。I2Cアドレスブロックとペアで使用。I2Cアドレスを設定し、センサー利用開始の流れになる。<br>  
+BME280の機能を利用開始するための命令を出すブロック。I<sup>2</sup>Cアドレスブロックとペアで使用。I<sup>2</sup>CCアドレスを設定し、センサー利用開始の流れになる。<br>  
 <li><B>センサー停止ブロック</B></li>  
 BME280の機能を停止するための命令を出すブロック。<br> 
 </ul>
@@ -166,7 +166,7 @@ BME280の機能を停止するための命令を出すブロック。<br>
 <img src="image/Saturatedvapor.jpeg" style="float: right; margin: 10px; width: 434px;" alt="飽和水蒸気圧/量ブロック">
 <ul>
 <li>気温を用いて飽和水蒸気圧や飽和水蒸気量を計算</li>
-<li>気温を指定するブロックとBME280のデータを直接利用するブロックをを用意</li>
+<li>気温を指定するブロックとBME280のデータを直接利用するブロックを用意</li>
 <h4>【飽和水蒸気圧ブロック】 単位　Pa/hPa</h4>
 <ul style="list-style-type: none; padding-left: 0;">
 <li>【参考　飽和水蒸気圧の求め方】</li>
