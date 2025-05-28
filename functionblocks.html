@@ -25,13 +25,12 @@
 <li>(1) <a href="#contblocks">センサー制御ブロック</a></li>
 <li>(2) <a href="#basicblocks">環境データの基本ブロック</a></li>
 <li>(3) <a href="#appblocks">応用ブロック</a></li>
-<li>(4) <a href="#condblocks"> 条件ブロック</a></li>
+<li>(4) <a href="#condblocks"> イベントブロック</a></li>
 </ul>
 </ol>
 </p>
 </section>
 <hr>
-
 <section id="usebme280">
 <p>
 <h2>1. BME280を利用するために</h2>
@@ -45,7 +44,6 @@ MakeCodeの拡張機能でBME280と検索すると拡張機能が数種類出て
 <a href="#top">ページ先頭へ</a><br>
 </p>
 </section>
-</dov>
 <hr>
 <section id="functionforjapanese">
 <p>
@@ -71,69 +69,69 @@ URL https://github.com/tanagogedora/bme280-jp<br>
 <h2 id="functionblocks">3. 拡張機能のブロック紹介</h2>
 <p>
 <h3 id="contblocks">(1) センサー制御ブロック</h3>
-<h4><BME280のセンサー機能を制御するための基本ブロック></hr>
+<h4><BME280のセンサー機能を制御するための基本ブロック></h4>
 <img src="image/sensorcontrol.jpeg" style="float: right; margin: 10px; width: 200px;" alt="センサー制御ブロック" >
 <h4>【センサーの電源管理やI2Cアドレスを設定するブロック】</h4> 
 <ul>
-<li>I2Cアドレス　ブロック</li>  
+<li><B>I2Cアドレスブロック</B></li>  
 I2C通信方式でBME280とmicro:bit間の通信（データ授受）を行う際に利用するBME280のアドレスを選択。0x76か0x77。アドレスはモジュールによって異なる。<br>
-<li>センサー起動　ブロック</li>  
+<li><B>センサー起動ブロック</B></li>  
 BME280の機能を利用開始するための命令を出すブロック。I2Cアドレスブロックとペアで使用。I2Cアドレスを設定し、センサー利用開始の流れになる。<br>  
-<li>センサー停止　ブロック</li>  
+<li><B>センサー停止ブロック</B></li>  
 BME280の機能を停止するための命令を出すブロック。<br> 
 </ul>
+
 <a href="#top">ページ先頭へ</a><br> 
 </p>
 <hr>
 <p> 
 <h3 id="basicblocks">(2) 環境データの基本ブロック</h3>
-<h4>【センサーとしてのBME280が取得した数値を取り出すブロック】</h4>
+<b>【センサーとしてのBME280が取得した数値を取り出すブロック】</B>
  <img src="image/basicfunction.jpeg" style="float: right; margin: 10px; width: 286px;" alt="BME280基本機能ブロック" > 
-<ul style="list-style-type: none; padding-left: 0;">
+<ul>
 <li>BME280が取得した数値を取り出すブロック。</li>
 <li>数値は整数.小数第1位・小数第２位</li>
-</ul>
-<ul>
-<li>気温　ブロック</li>
+
+<h4>【気温ブロック】</h4>
 <ul>
 <li>気温データを出力</li>
 <li>摂氏（セルシウス度　℃）と華氏（ファーレンハイト度　°F）に対応</li>
 </ul>
-<li>気圧　ブロック</li>
+<h4>【気圧ブロック】</h4>
 <ul>  
 <li>気圧データを出力</li>
 <li>パスカル（Pa）またはヘクトパスカル（ｈPa）に対応</li> 
 </ul>
-<li>湿度　ブロック</li>  
+<h4>【湿度ブロック】</h4>  
 <ul> 
 <li>湿度（相対湿度）を出力</li>  
 <li>パーセント表示</li>  
 </ul> 
 </ul>
+
+
 <a href="#top">ページ先頭へ</a><br>
 </p>
 <hr>
 <p>
 <h3 id="appblocks">(3) 応用ブロック</h3>
-<h4>【BME280から得られたデータをもとに数値を計算・導くブロック】</h4>
-<ul style="list-style-type: none; padding-left: 0;">
+<b>【BME280から得られたデータをもとに数値を計算・導くブロック】</b>
+<ul>
 <li>BME280から得られたデータを基に各種数値を計算するブロック</li>
-<ul style="list-style-type: none; padding-left: 0;">
-<li>標高差は基準点の気圧（初期気圧）以外、BME280から得たリアルタイムのデータ（現地の気圧・気温）を使用する</li>
-</ul>
-<il>  
-<li>飽和水蒸気圧・飽和水蒸気量はBME280から得たリアルタイムのデータを利用するブロックと、ユーザーが気温を指定するブロックを用意</li>
-<li>露点はBME280から得たリアルタイムのデータを利用するブロックと、ユーザーが気温・湿度を指定するブロックを用意</li>
-</ul>
 <li>数値は整数.小数第1位<BR></li>
 </ul>
-<ul>
-<li>標高差　ブロック</li> 
+<p>
+<h4>【標高差ブロック】</h4> 
 <img src="image/elevationdelta.jpeg" style="float: right; margin: 10px; width: 267px;" alt="標高差ブロック" > 
-<ul style="list-style-type: none; padding-left: 0;">
+<ul>
 <li>気圧と気温を用いて基準点からの標高差を計算</li>
+<ul style="list-style-type: none; padding-left: 0;">
+<li>基準気圧（基準点の気圧）はユーザーが指定（単位：Pa/hPa）</li>
+</ul>
 <li>単位はメートル（ｍ）またはフィート（ft）</li>
-<li>標高差の求め方</li>
+</ul>
+<ul style="list-style-type: none; padding-left: 0;">
+<li>【標高差の求め方】</li>
 <ul>
 <li>基準点の気圧をP<sub>0</sub>（PaまたはhPa）、現場の気圧をP（PaまたはhPa）、気温をt（℃）とする</li>
 <li>標高差Δh（ｍ）は次式で計算できる</li>
@@ -141,15 +139,24 @@ BME280の機能を停止するための命令を出すブロック。<br>
 <li><span style="font-size: 150%;">
 \( Δh =\frac{\left( \left( \frac{P_0}{P} \right )^\frac{1}{5.257} -1 \right )\times \left(t+273.25  \right )}{0.0065} \)
 </span></li>
-注
-<li> t+273.25　絶対温度の計算（単位：K ケルビン）</li>
+<br>
+【式中の数値について】
+<li> t+273.25　気温t℃を絶対温度に変換（単位：K ケルビン）</li>
 <li> 0.0065（℃／m）　対流圏における気温減率（教科書等では0.65℃/100ｍと表記）</li>
 </ul>
 </ul>
 </ul>
-<li>飽和水蒸気圧　ブロック</li> 
+</ul>
+</p>
+<p>
+<ul style="list-style-type: none; padding-left: 0;">
+<h4>【飽和水蒸気圧ブロック・飽和水蒸気量ブロック】</h4>
 <img src="image/Saturatedvapor.jpeg" style="float: right; margin: 10px; width: 434px;" alt="飽和水蒸気圧/量ブロック">
-<li>単位はヘクトパスカル（hPa）</li> 
+<ul>
+<li>気温を用いて飽和水蒸気圧や飽和水蒸気量を計算</li>
+<h4>【飽和水蒸気圧ブロック】 単位 Pa/hPa</h4>
+<ul style="list-style-type: none; padding-left: 0;">
+<li>【飽和水蒸気圧の求め方】</li>
 <ul>
 <li>気温をt（℃）とする。</li>
 <li>Tetens(テテンス)の式により飽和水蒸気圧e(t)は次式で求まる</li>
@@ -164,54 +171,76 @@ BME280の機能を停止するための命令を出すブロック。<br>
 </ul>
 </ul>
 </ul>
-<li>飽和水蒸気量　ブロック</li> 
+</ul>
+<h4>【飽和水蒸気量ブロック】 単位はg/m<sup>3</sup></h4>
 <ul style="list-style-type: none; padding-left: 0;">
-<li>気温から飽和水蒸気量を計算</li>
-<li>単位はg/m<sup>3</sup>（hPa）</li>
- <ul>
+<li>【飽和水蒸気量の求め方】</li>
+<ul>
 <li>気温をt（℃）とする。</li>
 <li>Tetens(テテンス)の式により求めた飽和水蒸気圧をPとする。</li>
 <li>飽和水蒸気量a(t)は次式で求まる。
 <ul style="list-style-type: none; padding-left: 0;">
-<span style="font-size: 150%;">
 <li>
+<span style="font-size: 150%;">
 \( a(t)=217 \times \frac{P}{t+237.15} = 217 \times \frac{6.1078\times 10 ^ \left( \frac{7.5t}{t+237.3} \right )}{t+237.15} \) 
-</li>
 </span>
+</li>
 <span style="font-size: 120%;">上式は理想気体の状態方程式\( pV=nRT \)から求めた</span>式<br>
 </ul>
 </ul>
 </ul>
-<li>露点　ブロック</li>
+</ul>
+</ul>
+</ul>
+</p>
+<p>
+<h4>【露点ブロック】</h4>
 <img src="image/dewpoint.jpeg" style="float: right; margin: 10px; width:428px;" alt="露点ブロック">
-<ul style="list-style-type: none; padding-left: 0;">
+<ul>
 <li>気温（℃）と湿度から露点を計算</li>
 <li>単位は℃</li>
+<ul style="list-style-type: none; padding-left: 0;">
+<li>【露点の求め方】</li>
+<ul style="list-style-type: none; padding-left: 0;">
+<li>改良マグヌス式を用いて求める</li>
 <ul>
 <li>気温をt（℃）とする。</li>
 <li>湿度をRH（％）とする</li>
-<li>飽和水蒸気量Td（℃）は次式（改良マグヌス式）で求まる。
+<li>飽和水蒸気量Td（℃）は次式求まる。
 <ul style="list-style-type: none; padding-left: 0;">
-<span style="font-size: 150%;">
 <li>
+<span style="font-size: 150%;">
 \( Td= \frac{b \times \alpha}{a-\alpha} \) 
-</li>
 </span>
-<span style="font-size: 120%;">ただし \( aとbは定数 \)で、  \( a=16.72 \)、\( b=243.12 \)。<br>
-また　\( \alpha=\frac{aT}{b+T}+\ln \frac{RH}{100} \) から求める</span><br>
+</li>
+<li>
+<span style="font-size: 120%;"> \( aとbは定数 \)　\( a=16.72 \)、\( b=243.12 \)。<br>
+\( \alpha=\frac{aT}{b+T}+\ln \frac{RH}{100} \) から求まる。</span><br>
+</li>
 </ul>
 </ul>
 </ul>
 </ul>
+</ul>
+</ul>
+</p>
 <a href="#top">ページ先頭へ</a><br> 
 </p>
 <hr>
 <p> 
-<h3 id="condblocks">(4) 条件ブロック</h3>
-<h4>【ブロックの条件に合わせた処理を行うブロック】</h4>
+<h3 id="condblocks">(4) イベントブロック</h3>
+<h4>【ブロックの条件に合わせた処理（イベント）を行うブロック】</h4>
 <ul style="list-style-type: none; padding-left: 0;">
 <li>気温・気圧・湿度について用意</li>
 <li>値が「しきい値より大」または「しきい値より小」の時のイベントを指定</li>
+<img src="image/eventtemp01.jpeg" width=150px " alt="気温～より低いイベント" style="margin:5px;">
+<img src="image/eventtemp02.jpeg" width=150px " alt="気温～より高いイベント" style="margin:5px;">
+<img src="image/eventprss01.jpeg" width=150px " alt="気圧～より低いイベント" style="margin:5px;">
+<img src="image/eventprss02.jpeg" width=150px " alt="気圧～より高いイベント" style="margin:5px;">
+<img src="image/eventhum01.jpeg" width=150px " alt="湿度～より低いイベント" style="margin:5px;">
+<img src="image/eventhum02.jpeg" width=150px " alt="湿度～より高いイベント" style="margin:5px;">
+<br>
+
 </ul>
 <a href="#top">ページ先頭へ</a><br>
 </p>
