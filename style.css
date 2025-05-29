@@ -1,8 +1,8 @@
 /* 基本フォントサイズの統一 */
     body {
       font-family: "Yu Gothic", "游ゴシック", sans-serif;
-      font-size: 26px;
-      font-weight: 600;
+      font-size: 24px;
+      font-weight: 500;
       line-height: 1.6;
       margin: 20px;
     }
@@ -30,17 +30,56 @@ h3, h4 {
 /* 段落 */
 p {
   text-indent: 1em;
-  margin-bottom: 1em;
+  margin-bottom: 0;
+  line-height: 1.2;
 }
 
 /* リスト */
-ol, ul {
-  margin-left: 2em;
-  margin-bottom: 1em;
+ol {
+  margin-left: 0.5em;
+  margin-bottom: 0;
 }
+ul {
+  margin-left: 1em;
+  margin-bottom: 0; 
+}
+
+/*　ol()付き番号　*/
+ol.kakkono {
+  list-style: none; /* デフォルトの番号は消す */
+  counter-reset: itemno;
+}
+
+ol.kakkono li {
+  counter-increment: itemno;
+  margin: 5px 0; /* 行間調整 */
+  margin-bottom: 0;
+  line-height: 1.2;  /* ← ここにも追加！ */
+}
+
+ol.kakkono li::before {
+  content: "(" counter(itemno) ")";
+  margin-right: 5px; /* 番号とテキストの間隔
+  margin-bottom: 0;
+  line-height: 1.2;  /* ← ここにも追加！ */
+}
+
+/* ulシンボル無し */
+ul.nosymbol {
+  list-style-type: none; 
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+/* リスト部の設定 */
 li {
-  margin-bottom: 0.5em;
+  line-height: 1.2; 
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+
 }
+
 
 /* リンク */
 a {
