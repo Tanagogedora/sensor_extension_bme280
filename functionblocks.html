@@ -14,9 +14,8 @@
 </head>
 
 <body>
-<section id="top">
-<h1>BME280用拡張機能（日本語仕様）とブロック </h1>
-<div>
+<section>
+<h1  id="top">BME280用拡張機能（日本語仕様）とブロック </h1>
 <ol>
 <li><a href="#usebme280">BME280を利用するために</a></li> 
 <li><a href="#functionforjapanese">日本語仕様の拡張機能と利用方法</a></li>
@@ -28,14 +27,15 @@
 <li>(4) <a href="#condblocks"> イベントブロック</a></li>
 </ul>
 </ol>
+<p><a href="index.html">Indexにもどる</a></p>
 </section>
 <hr>
-<section id="usebme280">
-<h2>1. BME280を利用するために</h2>
+<section>
+<h2 id="usebme280">1. BME280を利用するために</h2>
 <h3>＜BME280用拡張機能＞</h3>
 <h4>【拡張機能とは】</h4>
 <p>
-micro:bit &trade; （以下micro:bitと表記）で環境センサーBME280を利用するためには、MakeCode &trade; （以下MakeCodeと表記）のBME280用拡張機能が必要です。<br> 
+micro:bit &trade; （以下micro:bitと表記）で環境センサーBME280を利用するためには、Microsoft MakeCode &trade; （以下MakeCodeと表記）のBME280用拡張機能が必要です。<br> 
 </p>
 <p>
 拡張機能はMakeCodeを利用してmicro:bitができることの幅を広げるための機能です。たとえばmicro:bitには無線通信機能があります。Bluetooth通信の利用も可能ですが、MakeCodeの基本ブロックではサポートされていません。MakeCodeの拡張機能からBluetooth通信の拡張機能を追加することでBluetooth通信が可能になります。拡張機能は、パソコンにプリンターを接続して印刷するためにインストールするドライバみたいなものだと思ってもかまいません。<br>
@@ -48,16 +48,14 @@ MakeCodeの拡張機能でBME280と検索すると拡張機能が数種類出て
 ただ、microPhython Chineseコミュニティの拡張機能は、ブロック表記が英語であること、取得される数値が整数値であることが弱点といえば弱点です。BME280は環境センサーとはいえ、気象データに特化したセンサーのため、ブロックには一般的に馴染みのない英語（Dew Point＝露点）があります。<br>
 </p>
 <a href="#top">ページ先頭へ</a><br>
-</div>
 </section>
 <hr>
 
-<section id="functionforjapanese">
-<div>
-<h2>2. 日本語仕様の拡張機能と利用方法</h2>
+<section>
+<h2 id="functionforjapanese">2. 日本語仕様の拡張機能と利用方法</h2>
 <h3>＜日本語仕様の概要＞</h3>
 <p>
-BME280拡張機能（日本語仕様）はmicroPhython Chineseコミュニティの拡張機能をベースに日本語移植および機能の変更と追加をを行いました。拡張機能そのものは、ほぼmicroPhython Chineseコミュニティのものと同じです。ただし、ブロック表記の日本語化に加え次の機能が加えられています。<br>
+BME280拡張機能（日本語仕様）はmicroPhython Chineseコミュニティの拡張機能をベースに日本語移植および機能の変更と追加をを行いました。拡張機能そのものは、ほぼmicroPhython Chineseコミュニティのものと同じです。ただし、ブロック表記の日本語化に加え次の機能が加えられています。
 </p>
 <h4>【microPhython Chineseコミュニティからの変更点】</h4>
 <ul>　
@@ -72,12 +70,10 @@ micro:bitのMakeCodeのエディター画面から拡張機能をクリックし
 URL https://github.com/tanagogedora/bme280-jp<br>
 </p>
 <a href="#top">ページ先頭へ</a><br>
-</div>
 </section>
 <hr>
 
 <section>
-<div>
 <h2 id="functionblocks">3. 拡張機能のブロック紹介</h2>
 <p>
 各ブロックの利用方法は「3.プログラム例」のページをご覧ください。<br>
@@ -95,7 +91,6 @@ BME280の機能を利用開始するための命令を出すブロック。I<sup
 BME280の機能を停止するための命令を出すブロック。<br> 
 </ul>
 <a href="#top">ページ先頭へ</a><br> 
-</div>
 <hr>
 <div>
 <h3 id="basicblocks">(2) 環境データの基本ブロック</h3>
@@ -122,10 +117,8 @@ BME280の機能を停止するための命令を出すブロック。<br>
 </ul> 
 </ul>
 <a href="#top">ページ先頭へ</a><br>
-</div>
 <hr>
 
-<div>
 <h3 id="appblocks">(3) 応用ブロック</h3>
 <b>【BME280から得られたデータをもとに数値を計算・導くブロック】</b>
 <ul>
@@ -160,8 +153,7 @@ BME280の機能を停止するための命令を出すブロック。<br>
 </ul>
 </ul>
 </ul>  
-</div>
-<div>
+
 <h4>【飽和水蒸気圧ブロック・飽和水蒸気量ブロック】</h4>
 <img src="image/Saturatedvapor.jpeg" style="float: right; margin: 10px; width: 434px;" alt="飽和水蒸気圧/量ブロック">
 <ul>
@@ -203,8 +195,7 @@ BME280の機能を停止するための命令を出すブロック。<br>
 </ul>
 </ul>
 </ul>
-</div>
-<div>
+
 <h4>【露点ブロック】</h4>
 <img src="image/dewpoint.jpeg" style="float: right; margin: 10px; width:428px;" alt="露点ブロック">
 <ul>
@@ -218,7 +209,7 @@ BME280の機能を停止するための命令を出すブロック。<br>
 <ul>
 <li>気温をt（℃）とする。</li>
 <li>湿度をRH（％）とする</li>
-<li>飽和水蒸気量Td（℃）は次式求まる。
+<li>露点Td（℃）は次式求まる。
 <ul style="list-style-type: none; padding-left: 0;">
 <li>
 <span style="font-size: 150%;">
@@ -236,10 +227,8 @@ BME280の機能を停止するための命令を出すブロック。<br>
 </ul>
 </ul>
 <a href="#top">ページ先頭へ</a><br> 
-</div>
 <hr>
 
-<div> 
 <h3 id="condblocks">(4) イベントブロック</h3>
 <h4>【ブロックの条件に合わせた処理（イベント）を行うブロック】</h4>
 <ul>
@@ -255,11 +244,13 @@ BME280の機能を停止するための命令を出すブロック。<br>
 
 </ul>
 <a href="#top">ページ先頭へ</a><br>
-</div>
+
 </section>
 <hr>
 <div>
+<p>
 <a href="index.html">Indexに戻る</a>
+</p>
 <div>
 </body>
 </html>
