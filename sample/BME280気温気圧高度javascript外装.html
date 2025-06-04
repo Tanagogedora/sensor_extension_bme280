@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BME280&BMP280 データ表示</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h2>BME280&BMP280 センサーデータ</h2>
+	<p>注意　BMP280は湿度測定しないため接続時は湿度は0</p>
+    <button id="connect">マイクロビットと接続</button>
+    <button id="start-logging" disabled>データ収集開始</button>
+    <button id="reset-p0">P0初期化</button>
+    <button id="download-csv">CSVログをダウンロード</button>
+
+    <div id="data-display">
+        <p>P0: <span id="p0-display">--</span>hPa</p>
+		<p> 時刻: <span id="time-display">--:--:--</span> 気温: <span id="kion-display">--</span> ℃  湿度: <span id="shitsu-display">--</span> %　気圧: <span id="kiatsu-display">--</span> hPa 標高差: <span id="kodosa-display">--</span> m</p>
+    </div>
+
+    <canvas id="chart"></canvas>
+	<footer>
+  	<small>© 2025 Tanagotti | <a href="https://opensource.org/licenses/MIT">MIT License</a></small>
+	</footer>
+<script src="GetData3.js"></script>
+
+</body>
+</html>
