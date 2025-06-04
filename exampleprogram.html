@@ -18,26 +18,366 @@
 BME280の機能をmicor:bit<sup>TM</sup>（以下micro:bitと表記）で使用するため、Microsoft MakeCode<sup>TM</sup>（以下MakeCodeと表記）BME280拡張機能日本語仕様を利用したプログラム（ブロック・javascript）の紹介<br>
 </div>
 <hr>
-<section>
-<h2>目次</h2>
-<ol>
-<li>基本編</li>
-<ol class="kakkono">
-    <li>初期設定</li>
-    <li>BME280の基本機能を利用する</li>
-    <li>標高差の表示</li>
-    <li>飽和水蒸気圧・飽和水蒸気量の表示</li>
-    <li>露点の表示</li>
-    <li>条件ブロック</li>
-</ol>
-<li>応用編</li>
-<ol class="kakkono">
-    <li>PCにデータを送る</li>
-</ol>
-</ol>
+<!----目次--->
 
+<section>
+<h2 id="top">目次</h2>
+<h3>1.基本編</h3>
+<ol class="kakkono">
+    <li><a href="#setup">初期設定</a></li>
+    <li><a href="#basicfunction">BME280の基本機能を利用する</a></li>
+    <li><a href="#elevationdelta">標高差の表示</a></li>
+    <li><a href="#saturatedvapor">飽和水蒸気圧・飽和水蒸気量の表示</a></li>
+    <li><a href="#dewpoint">露点の表示</a></li>
+    <li><a href="#branching">条件ブロック</a></li>
+</ol>
+<h3>2.応用編</h3>
+<ol class="kakkono">
+    <li><a href="#senddatapc">PCにデータを送る</a></li>
+</ol>
+<p><a href="index.html">Indexにもどる</a></p>
+</section>
+<!----本文--->
+<hr>
+<section>
+<h2>基本編</h2>
+
+<!----初期設定--->
+ <h3 id="setup">(1) 初期設定</h3>
+ <img src="image/setup.png" class="imgsizeperflleft" alt="BME280初期設定のブロック">
+   <ul>
+   <li>BME280を利用するためのブロック。</li>
+必ずこの部分をつけておかないと、BME280が利用できません。<br>
+   <li>プログラム（ブロック）の流れ</li>
+    I<sup>2</sup>Cアドレスの指定→BME280の起動→一時停止
+   </ul>
+<div class="clear-both">
+ <pre class="lefttop pre">
+【ブロックをjavascriptで示す】
+  <code class="lefttop code">
+  // センサーの初期化
+  // I2Cアドレスを設定
+  BME280.Address(BME280.BME280_I2C_ADDRESS.ADDR_0x76)
+  // センサー起動
+  BME280.PowerOn()
+  // センター安定化のために1秒待つ
+  basic.pause(1000)
+  </code>
+  </pre>
+</div>
+
+<h4>【解説】</h4>
+<p class="txindent">
+micro:bitはBME280と通信する際、I<sup>2</sup>Cを利用します。まず I<sup>2</sup>Cアドレスを指定し、micro:bitがBME280に指令を出すときの送り先（アドレス）をmicro:bitに教えます。BME280の場合は0x76か0x77です。どちらを利用するかはBME280センサーモジュールの種類やセンサーモジュールの設定によって異なります。BME280拡張機能日本語仕様の場合、ブロック内のプルダウンで0x76か0x77を選択します。次にmicro:bitにBME28の起動命令を出すように指示します。<br>
+　一時停止はセンサーの安定化のための命令。BME280起動直後は、データ測定が不安定なので1000ミリ秒＝１秒ほど待ってやると値が安定します。<br>
+</p>
+  <p><a href="#top">目次に戻る</a></p>
+ </div>
+
+<!---基本機能ブロックの使い方--->
+ <h3 id="basicfunction">(2) BME280の基本機能を利用する</h3>
+ <img src="image/howtobasicblocks.png" class="imgsizeperflleft" alt="基本機能の利用例　Ａ・Ｂボタンの組み合わせで気温・気圧・湿度を表示　のブロック">
+   <ul>
+   <li>ボタンＡを押すと気温（小数第１位）＋℃（単位）がmicro:bitのLEDに表示。</li>
+   <li>ボタンＢを押すと気圧（小数第１位）＋hPa（単位）がmicro:bitのLEDに表示。</li>
+   <li>ボタンＡとボタンＢを同時に押すと湿度（相対湿度）（小数第１位）＋％がmicro:bitのLEDに表示。</li>
+  </ul>
+<div class="clear-both">
+ <pre class="lefttop pre">
+【ブロックをjavascriptで示す】
+ <code class="lefttop code">
+// Aを押すとmicoro:bitのLEDに気温（摂氏　小数第1位）をmicro:bitのLEDに表示
+input.onButtonPressed(Button.A, function () {
+    basic.showNumber(BME280.temperature(BME280.BME280_T.T_C, BME280.RPoint.RPt))
+})
+// Bを押すとmicoro:bitのLEDに気温（hPa 小数第1位）をmicro:bitのLEDに表示
+input.onButtonPressed(Button.B, function () {
+    basic.showNumber(BME280.pressure(BME280.BME280_P.hPa, BME280.RPoint.RPt))
+})
+// AとBを同時に押すとmicoro:bitのLEDに湿度（％　小数第1位）をmicro:bitのLEDに表示
+input.onButtonPressed(Button.AB, function () {
+    basic.showNumber(BME280.humidity(BME280.RPoint.RPt))
+})
+  </code>
+  </pre>
+</div>
+<h4>【解説】</h4>
+<p class="txindent">
+気温ブロック・気圧ブロック・湿度ブロックにより気温・気圧・湿度をBME280から取り出して文字列にし、単位をつけてmicro:bitのLEDに表示するプログラムです。micro:bitの入力ブロックとBME280拡張機能日本語仕様のブロックを組み合わせたものです。<br>
+　直接の気温・気圧・湿度の各ブロックを使っていますが変数を利用してもかまいません。応用として測定した気温・気圧・湿度を変数に収め、USB経由でPCに送信することも可能です。<br>
+</p>
+<p><a href="#top">目次に戻る</a></p>
+
+<!---標高差の表示--->
+ <h3 id="elevationdelta">(3) 標高差の表示</h3>
+ <img src="image/setup2.png" class="imgsizeperflleft" alt="BME280標高差　初期設定のブロック">
+ <img src="image/elevationdelta2.png" class="imgsizeper" alt="ボタンＡを押すと標高差のブロック">
+   <ul>
+   <li>ボタンＡを押すと標高差を計算しmicro:bitのLEDに表示</li>
+   </ul>
+<div class="clear-both">
+ <pre class="lefttop pre">
+【ブロックをjavascriptで示す】
+  <code class="lefttop code">
+// 初期設定
+// 変数の定義
+let 標高差 = 0
+let 基準点の気圧 = 0
+// センサーの初期設定
+BME280.Address(BME280.BME280_I2C_ADDRESS.ADDR_0x76)
+BME280.PowerOn()
+BME280.PowerOff()
+基準点の気圧 = BME280.pressure(BME280.BME280_P.hPa, BME280.RPoint.RPd)
+)
+// Aを押すとmicoro:bitのLEDに標高差が表示
+input.onButtonPressed(Button.A, function () {
+    標高差 = BME280.getElevationdifference(
+    BME280.Eldf.altd_m,
+    BME280.Rpoint2.RP1st,
+    基準点の気圧,
+    BME280.BME280_P.hPa
+    )
+})
+  </code>
+ </pre>
+</div>
+<h4>【解説】</h4>
+<p class="txindent">
+気温・気圧から標高差を求めます。<br>
+　基準気圧（基準点の気圧）を変数「基準点の気圧」に収め、ブロックの指定の場所に入れることで、基準点との標高差を計算しています。結果は変数「標高差」に格納し、文字列にし単位をつけてmicro:bitのLEDに表示します。<br>
+　直接ブロックには出てきませんが、MakeCodeエディタで変数を定義しています。javascriptの「let 標高差 = 0」「let 基準点の気圧 = 0」が変数の定義になります。
+</p>
+
+<p><a href="#top">目次に戻る</a></p>
+
+<!---飽和水蒸気圧・飽和水蒸気量の表示--->
+ <h3 id="saturatedvapor">(4) 飽和水蒸気圧・飽和水蒸気量の表示</h3>
+ <img src="image/howasuijyoki.png" class="imgsizeperflleft" alt="飽和水蒸気圧・飽和水蒸気量表示のブロック">
+   <ul>
+   <li>ボタンＡを押すと飽和水蒸気圧（小数第１位）＋hPa(単位）がmicro:bitのLEDに表示。</li>
+   <li>ボタンＢを押すと飽和水蒸気（整数）＋＋g/m<sup>3</sup>（単位）がmicro:bitのLEDに表示。</li>
+  </ul>
+<div class="clear-both">
+ <pre class="lefttop pre">
+【ブロックをjavascriptで示す】
+  <code class="lefttop code">
+// 変数の定義
+let 気温 = 0
+// ボタンＡを押すと飽和水蒸気圧（小数第１位）＋hPaがmicro:bitのLEDに表示
+input.onButtonPressed(Button.A, function () {
+    basic.showString("" + BME280.Calcsvpnow(BME280.Rpoint2.RP1st) + "hPa")
+})
+// ボタンＢを押すと飽和水蒸気（整数）＋＋g/m^3がmicro:bitのLEDに表示。
+input.onButtonPressed(Button.B, function () {
+    気温 = BME280.temperature(BME280.BME280_T.T_C, BME280.RPoint.RPt)
+    basic.showString("" + BME280.Calcsva(気温, BME280.Rpoint2.Rintg) + "g/m^3")
+})
+  </code>
+ </pre>
+</div>
+
+<h4>【解説】</h4>
+<p class="txindent">
+飽和水蒸気圧・飽和水蒸気量を求めます。<br>
+　飽和水蒸気圧はBME280から直接気温の値を得て計算し、文字列にし単位をつけてmicro:bitのLEDに表示させています。飽和水蒸気量はBME280から気温の数値を得て、変数「気温」に収め、ブロックの指定の場所に入れることで、飽和水蒸気量を計算しています。結果は文字列にし単位をつけてmicro:bitのLEDに表示します。MakeCodeエディタで変数「気温」を定義しています。
+</p>
+
+<p><a href="#top">目次に戻る</a></p>
+
+<!---露点の表示--->
+ <h3 id="dewpoint">(5) 露点の表示</h3>
+ <img src="image/dewpoint.png" class="imgsizeperflleft" alt="ボタンＡとボタンＢを同時に押すと露点表示のブロック">
+   <ul>
+   <li>ボタンＡとボタンＢを同時に押すと露点（整数）＋C(℃）がmicro:bitのLEDに表示。</li>
+  </ul>
+ <div class="clear-both">
+ <pre class="lefttop pre">
+【ブロックをjavascriptで示す】
+  <code class="lefttop code">
+// ボタンＡ＋Ｂを押すと露点（整数）＋Cがmicro:bitのLEDに表示
+input.onButtonPressed(Button.AB, function () {
+    basic.showString("" + BME280.getDewpointnow(BME280.Rpoint2.Rintg) + "ｃ")
+})
+  </code>
+ </pre>
+</div>
+
+<h4>【解説】</h4>
+<p class="txindent">
+露点を求めます。<br>
+　露点は気温と湿度が分かれば求めることができます。BME280から気温・湿度の値を得て計算し、文字列にし単位をつけてmicro:bitのLEDに表示させています。利用している改良マグヌス式は近似値を求める式なので若干のずれがあります。MakeCodeエディタで変数「気温」と「湿度」を定義し気温・湿度を変数に代入して求めるブロックを利用する方法もあります。詳しくは<a href="functionblocks.html">「2.ブロックの紹介」</a>を参考にしてください。
+</p>
+<p><a href="#top">目次に戻る</a></p>
+
+<!---条件ブロック--->
+ <h3 id="branching">(6) 条件ブロック</h3>
+<b>準備中</b>
+<p><a href="#top">目次に戻る</a></p>
 </section>
 <hr>
-<a href="index.html">Indexにもどる</a>
+<section>
+
+<!--応用編--->
+<h2>応用編</h2>
+
+<!--PCにデータを送る--->
+ <h3 id="senddatapc">(1) PCにデータを送る</h3>
+<p class="txindent">
+BME280で測定した気温・気圧・湿度と気温・気圧を利用して算出した標高差をPCに送り、ブラウザ上でグラフ化をします。
+</p>
+<div class="txindent">
+PCとのシリアル通信　初期化ブロック
+</div>
+<div class="image-group"> 
+<figure>
+ <img src="image/toPCsetting01.png" alt="PCとのシリアル通信　初期化ブロック">
+</figure>
+</div>
+   <ul>
+   <li>「シリアル通信　通信先をUSBに変更」ブロックでUSB経由でシリアル通信できるように設定。</li>
+   <li>I<sup>2</sup>Cのアドレス設定を行う</li>
+   <li>センサー起動</li>
+   <li>センサー安定化のため１秒（1000ミリ秒）待機</li>
+   <li>基準点の気圧を取得する</li>
+  </ul>
+
+ <div class="clear-both"></div>
+<div class="txindent">
+メインブロック：データ取得・送信部（ブロックが大きいため分割）
+ </div>
+<div class="image-group"> 
+<figure>
+ <img src="image/toPCmaintop.png" class="imgsizeper" style="margin: 10px;" alt="PCとのシリアル通信　メインブロック上部">
+</figure>
+</div>
+「シリアル通信」の条件ブロックでPCから改行コードが来たときに行うイベントを指定<br>
+ア　変数「command」に改行コードまでの信号を入れる。
+
+<ul>
+<li>
+commandがGETの場合
+</li>
+</ul>
+(a)　変数「気温」・「気圧」・「標高差」・「湿度」に数値を代入<br>
+
+
+ <div class="clear-both"></div>
+<div class="image-group"> 
+<figure>
+ <img src="image/toPCmainmiddle.png" class="imgsizeper" style="margin: 10px;" alt="PCとのシリアル通信　メインブロック中部">
+</figure>
+</div>
+(b)「気温」・「気圧」・「標高差」・「湿度」の数値をカンマ切り（csv形式）でPCに送信
+<div class="clear-both"></div>
+<div class="image-group"> 
+<figure>
+ <img src="image/toPCmainbottom.png" class="imgsizeper" style="margin: 10px;" alt="PCとのシリアル通信　メインブロック下部"><br>
+</figure>
+</div>
+<ul>
+<li>
+commandがRESET_P0の場合
+</li>
+<ul>
+<div>
+(a)基準点の気圧を再取得する<br>
+(b)「P0 update:」を「基準点の気圧」の頭につけ（文字列化）て、シリアル通信でPCに送信
+</div>
+<div class="clear-both">
+ <pre class="lefttop pre">
+【ブロックをjavascriptで示す】
+  <code class="lefttop code">
+// 初期設定
+let 湿度 = 0
+let 標高差 = 0
+let 気圧 = 0
+let 気温 = 0
+let command = ""
+let 基準点の気圧 = 0
+serial.redirectToUSB()
+BME280.Address(BME280.BME280_I2C_ADDRESS.ADDR_0x76)
+BME280.PowerOn()
+basic.pause(1000)
+基準点の気圧 = BME280.pressure(BME280.BME280_P.hPa, BME280.RPoint.RPd)
+// メイン
+// シリアル通信ブロック群の条件ブロックでイベントを作成
+serial.onDataReceived(serial.delimiters(Delimiters.NewLine), function () {
+// PCから送られてきた文字が改行コードだった時は
+// 改行コードの手前まで変数commandに代入
+    command = serial.readUntil(serial.delimiters(Delimiters.NewLine))
+// commandがGETなら気温・気圧・標高差・湿度をカンマ切りで文字列にしてPCに送信
+    if (command == "GET") {
+        気温 = BME280.temperature(BME280.BME280_T.T_C, BME280.RPoint.RPt)
+        気圧 = BME280.pressure(BME280.BME280_P.hPa, BME280.RPoint.RPt)
+        標高差 = BME280.getElevationdifference(
+        BME280.Eldf.altd_m,
+        BME280.Rpoint2.RP1st,
+        基準点の気圧,
+        BME280.BME280_P.hPa
+        )
+        湿度 = BME280.humidity(BME280.RPoint.RPt)
+        serial.writeNumbers([
+        気温,
+        気圧,
+        標高差,
+        湿度
+        ])
+// commandがRESET_P0なら基準点の気圧を再取得し、P0 updated:をつけてPCに基準点の気圧を送信
+    } else if (command == "RESET_P0") {
+        基準点の気圧 = BME280.pressure(BME280.BME280_P.hPa, BME280.RPoint.RPd)
+        serial.writeLine("P0 updated: " + 基準点の気圧)
+    }
+})
+  </code>
+ </pre>
+</div>
+
+<h4>【解説】</h4>
+<p class="txindent">
+PCにBME280が取得したデータと基準点との標高差を送信するプログラム<br>
+センサーと親機（この場合PC）間のデータ授受にはセンサーから親機にデータを一定間隔で送るプッシュ型と親機からのリクエストで親機にデータを送るプル型があります。リアルタイムでグラフ化などをしたいとき、micro:bitの場合、PCとの通信はWeb Serial APIが比較的楽なようです。ただmicro:bitの場合Web Serial APIだとプッシュ型でのデータ送信は苦手のようです。データが欠落した時の処理が上手くいかないため、データ処理がもたつきます。プル型だと比較的安定します。そのため上の例ではプル型で処理をしています。具体的にはPCからmicro:bitにWeb Serial APIで送られてきた信号が改行コードの場合、イベントが発生するという構造になっています。</p>
+<p class="txindent">
+PCとmicro:bitはあらかじめUSB接続をしておきます。MakeCodeエディタを開き、あらかじめ作成したブロックをmicro:bitにダウンロードします。ダウンロードが終わったらMakeCodeエディタは閉じておきます。開いたままだとMakeCodeへも信号が流れ、PCへデータにデータ欠損が起こり、安定しません。
+</p>
+<p class="txindent"> サンプルプログラム集を用意しています。必要に応じてダウンロードしご利用ください。</p>
+<h3>サンプルプログラム</h3>
+<h4>【お願いと注意点】</h4>
+<ol>
+<li>お願い</li>
+　<ul>
+    <li>サンプルプログラムに関して作成者Tanagottiは著作権を放棄していません。</li>
+    <li>MIT LICENSEに基づき、自由に利用すること、改変・再配布について、制限を設けていません。</li>
+    <li>改変・再配布についてはMIT LICENSEに基づいた処理をお願いします。詳しくは「4.著作権について」をお読みください</li>
+  </ul>
+<li>使用上の注意点</li>
+sample.zipにしています。ダウンロードし解凍して利用してください。<br>
+<a href="sample/sample.zip" download="sample.zip">
+サンプルプログラム（zip形式）
+</a>
+<ul>
+<li>sample.zip内の構成ファイル</li>
+　<ul>
+    <li>サンプルプログラム１（HTML　javascrip内装） bme280innerjavascript.html </li>
+    <li>サンプルプログラム２（HTML　javascrip外装） bme280outerjavascript.html </li>
+    <li>データ処理javascripファイル　GetData3.js</li>
+   </ul>
+<li>構成ファイルの特長</li>
+　<ul>
+    <li>サンプルプログラム１（HTML　javascrip内装）はデータ処理のjavascripを内蔵しています。micro:bitを接続すればそのまま利用できます。 </li>
+    <li>サンプルプログラム２（HTML　javascrip外装）はデータ処理のjavascripを内蔵していません。同じフォルダ内にGetData3.jsを置いてください。</li>
+    <li>データ処理javascripファイル　GetData3.jsはサンプルプログラム２で利用するjavascripです。
+<ul>
+<li>ファイル名を変更すると動作しなくなります。</li>
+<li>変更した場合はサンプルプログラム２（bme280outerjavascript.html）&lt;body&gt内にある「<code>&lt;script src="GetData3.js"&gt;&lt;/script&gt;</code> を  
+<code>&lt;script src="新しいファイル名.js"&gt;&lt;/script&gt;</code> 」書き換えてください</li>
+</li>
+</ul>
+
+</ul>
+</ol>
+<p><a href="#top">目次に戻る</a></p>
+</section>
+<hr>
+<p><a href="index.html">Indexにもどる</a></p>
 </body>
 <html>
