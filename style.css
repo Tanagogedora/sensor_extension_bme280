@@ -17,31 +17,36 @@ h1 {
 h2 {
   font-size: 1.4em;
   margin-top: 30px;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   border-left: 4px solid #666;
   padding-left: 0.5em;
+  padding-bottom: 5px;
 }
 h3, h4 {
   font-size: 1.2em;
-  margin-top: 20px;
-  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  padding-bottom: 0;
 }
 
 /* 段落 */
-p {
+.txindent {
   text-indent: 1em;
   margin-bottom: 0;
   line-height: 1.2;
+  padding-bottom: 0;
 }
 
 /* リスト */
 ol {
   margin-left: 0.5em;
   margin-bottom: 0;
+  line-height: 1.2;
 }
 ul {
   margin-left: 1em;
-  margin-bottom: 0; 
+  margin-bottom: 0;
+  line-height: 1.2 
 }
 
 /*　ol()付き番号　*/
@@ -80,7 +85,141 @@ li {
 
 }
 
+/* 画像管理 */
+/* 一般的な大きさ管理 */
+.imgsizeper {
+  width: 40%;
+  height: auto;
+}
 
+/* 大きさ管理＋画像に対する文字の回り込み左回り込みクラス */
+.imgsizeperflleft {
+  width: 40%;
+  height: auto;
+  float: left;
+  margin: 10px 20px 10px 0;
+}
+
+
+
+/* 画像に対する文字の回り込み クラス */
+
+/* 左回り込みクラス　画像の右側にテキストなどが来る */
+.float-left {
+  float: left;
+  margin: 10px 20px 10px 0;
+}
+
+/* 右回り込みクラス　画像の左側にテキストなどが来る */
+.float-right {
+  float: right;
+  margin: 10px 0 10px 20px;
+}
+/* 画像など中央揃え　上揃え */
+.imgtopcenter {
+  vertical-align="top"
+  text-align="center";
+  margin: 0;
+  padding: 0;
+  max-width: 100%;     /* 念のため幅の暴走防止 */
+  height: auto;
+}
+
+
+/* 画像など左揃え　上揃え */
+.imgtopleft {
+  vertical-align="top"
+  text-align="left";
+  margin: 0;
+  padding: 0;
+  max-width: 100%;     /* 念のため幅の暴走防止 */
+  height: auto;
+}
+
+/* 回り込み解除 */
+.clear-both {
+  clear: both;
+}
+
+/* 画像グループ化 */
+.image-group {
+  float: left;
+  width: 40%;
+  margin: 10px 40px 10px 0;  /* ← ここで右に20px確保！ */
+  text-align: center;
+}
+
+.image-group figure {
+  margin: 0 0 15px 0;
+}
+
+.image-group img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.image-group figcaption {
+  font-size: 0.9em;
+  color: #444;
+}
+
+.text-content {
+  margin-left: 250px;  /* 画像群の幅＋余白 */
+  padding: 10px;
+  overflow: hidden;    /* floatの影響を防ぐ */
+}
+
+/* 画像管理終わり */
+
+/* テーブル管理 */
+
+/* テーブルの共通設定 */
+table.main-table {
+  margin: auto;
+  table-layout: fixed;  /* 固定レイアウトでセル幅優先 */
+  width: 90%;           /* 必要に応じて全体幅 */
+}
+
+/* テーブルの文字寄せ */
+
+.lefttop {
+vertical-align="top"
+text-align="left";
+}
+
+.centermiddle {
+vertical-align="middle"
+text-align="center";
+}
+
+.centertop {
+vertical-align="top"
+text-align="center";
+}
+
+/* テーブル管理終わり */
+
+/* コードブロック全体の表示調整 */
+.lefttop pre {
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;    /* 行間を詰める */
+  text-align: left;    /* 横揃え（必要に応じて） */
+  white-space: pre-wrap;  /* 自動改行を許可 */
+  word-break: break-word; /* 長い単語の折り返し */
+  overflow-wrap: anywhere;   /* ←これが最重要！どこでも折り返す！ */
+  hyphens: auto;             /* （補助的に）単語内でハイフンで折り返す */
+}
+
+/* コード単体のフォント調整 */
+.lefttop code {
+  font-family: Consolas, monospace;
+  font-size: 90%;
+  line-height: 1.2;
+}
+
+/* コードブロック全体の表示調整終わり */
 /* リンク */
 a {
   color: #0645AD;
